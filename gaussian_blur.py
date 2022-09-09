@@ -1,4 +1,7 @@
 #### Gaussion Blur
+import math
+from PIL import Image
+
 def calc2DNormalDistPDF(x, y, sigma):
 	gb_pdf = (1.0 / (2.0 * math.pi * sigma * sigma)) * math.exp(-(x**2 + y**2)/(2.0 * sigma * sigma))
 	return gb_pdf
@@ -57,5 +60,8 @@ def doGaussionBlur(img_src, img_dest, width, height, radius, sigma):
 
 	img_dest.save('test_img_gaussion_blur.jpg')
 
+# test for doGaussionBlur
+img = Image.open('blur_test3.jpg')
+width, height = img.size
+img2 = Image.new(img.mode, (width - 16, height - 16))
 doGaussionBlur(img, img2, width, height, 8, 80)
-#img2.save('test_img_gaussion_blur.png')
