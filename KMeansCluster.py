@@ -62,7 +62,7 @@ def performKMeansCluster(k, clusterCenters, data):
 				min_dist = dist
 				min_k = j
 		eachClusterData[min_k].append(data[i])
-	# 更新聚类中心
+	# update the cluster center with the average value in one cluster.
 	clusterCenters.clear()
 	for k in eachClusterData.keys():
 		dist_center = calcAverageDistance(eachClusterData[k])
